@@ -4,13 +4,13 @@ namespace AffWP\Labs;
 use AffWP\Labs;
 
 /**
- * Implements the Affiliate Area Styles feature for labs.
+ * Implements the Email Customizer feature for labs.
  *
  * @since 1.0
  *
  * @see \AffWP\Labs\Feature
  */
-final class Affiliate_Area_Styles extends Labs\Feature implements Labs\Customizer_Feature {
+final class Email_Customizer extends Labs\Feature implements Labs\Customizer_Feature {
 
 	/**
 	 * Customizer instance.
@@ -28,13 +28,13 @@ final class Affiliate_Area_Styles extends Labs\Feature implements Labs\Customize
 	 * @since  1.0
 	 */
 	public function __construct() {
-		add_action( 'affwp_labs_customize_register', array( $this, 'set_up_customizer' ), 20 );
+		add_action( 'affwp_labs_customize_register', array( $this, 'set_up_customizer' ) );
 
 		parent::__construct();
 	}
 
 	/**
-	 * Sets up the Customizer for AAS.
+	 * Sets up the Email Customizer.
 	 *
 	 * @access public
 	 * @since  1.0
@@ -57,7 +57,7 @@ final class Affiliate_Area_Styles extends Labs\Feature implements Labs\Customize
 	 * @since  1.0
 	 */
 	public function register_settings() {
-		$this->wp_customize->add_setting( 'affwp_settings[labs][affiliate_area][primary]', array(
+		$this->wp_customize->add_setting( 'affwp_settings[labs][email][primary]', array(
 			'type'              => 'option',
 			'default'           => '#FF6633',
 			'sanitize_callback' => 'sanitize_hex_color',
@@ -74,10 +74,10 @@ final class Affiliate_Area_Styles extends Labs\Feature implements Labs\Customize
 	 */
 	public function register_controls() {
 		$this->wp_customize->add_control(
-			new \WP_Customize_Color_Control( $this->wp_customize, 'affiliate_area_primary', array(
-				'settings'   => 'affwp_settings[labs][affiliate_area][primary]',
+			new \WP_Customize_Color_Control( $this->wp_customize, 'email_customizer_primary', array(
+				'settings'   => 'affwp_settings[labs][email][primary]',
 				'label'    => __( 'Primary Color', 'amp' ),
-				'section'  => 'affwp_labs_affiliate_area',
+				'section'  => 'affwp_labs_email_customizer',
 				'priority' => 10
 			) )
 		);
@@ -90,8 +90,8 @@ final class Affiliate_Area_Styles extends Labs\Feature implements Labs\Customize
 	 * @since  1.0
 	 */
 	public function register_sections() {
-		$this->wp_customize->add_section( 'affwp_labs_affiliate_area', array(
-			'title' => __( 'Affiliate Area Styles', 'affiliate-wp' ),
+		$this->wp_customize->add_section( 'affwp_labs_email_customizer', array(
+			'title' => __( 'Email Customizer', 'affiliate-wp' ),
 			'panel' => affiliate_wp()->labs->get_panel_id()
 		) );
 	}
@@ -106,14 +106,13 @@ final class Affiliate_Area_Styles extends Labs\Feature implements Labs\Customize
 	 * @return array Modified labs settings.
 	 */
 	public function register_labs_setting( $settings ) {
-		$settings['affiliate_area_styles'] = array(
-			'name' => __( 'Affiliate Area Style Customizer', 'affiliate-wp' ),
-			'desc' => __( 'Adds the ability to customize styling of the affiliate area.', 'affiliate-wp' ),
+		$settings['email_customizer'] = array(
+			'name' => __( 'Email Customizer', 'affiliate-wp' ),
+			'desc' => __( 'Adds the ability to customize AffiliateWP emails.', 'affiliate-wp' ),
 			'type' => 'checkbox'
 		);
 
 		return $settings;
 	}
-
 
 }
