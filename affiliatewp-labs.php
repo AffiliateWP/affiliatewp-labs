@@ -91,6 +91,7 @@ if ( ! class_exists( 'AffiliateWP_Labs' ) ) {
 				self::$instance = new AffiliateWP_Labs;
 				self::$instance->setup_constants();
 				self::$instance->load_textdomain();
+				self::$instance->includes();
 				self::$instance->register_features();
 				self::$instance->init();
 				self::$instance->hooks();
@@ -215,6 +216,20 @@ if ( ! class_exists( 'AffiliateWP_Labs' ) ) {
 				// Load the default language files.
 				load_plugin_textdomain( 'affiliatewp-labs', false, $lang_dir );
 			}
+		}
+
+		/**
+		 * Loads required files.
+		 *
+		 * @access private
+		 * @since  1.0
+		 */
+		private function includes() {
+			if ( ! class_exists( 'AffWP\Labs\Feature' ) ) {
+				require_once AFFILIATEWP_PLUGIN_DIR . 'includes/abstracts/class-affwp-labs-feature.php';
+			}
+
+			require_once AFFWP_LABS_PLUGIN_DIR . 'includes/interfaces/interface-customizer-feature.php';
 		}
 
 		/**
