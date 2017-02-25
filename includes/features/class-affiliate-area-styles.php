@@ -48,8 +48,43 @@ final class Affiliate_Area_Styles extends Labs\Feature {
 	public function set_up_customizer( $wp_customize ) {
 		$this->wp_customize = $wp_customize;
 
-		$this->register_sections();
+		// Settings before controls is required. Sections and panels anytime.
+		$this->register_settings();
 		$this->register_controls();
+		$this->register_sections();
+	}
+
+	/**
+	 * Registers settings to the Affiliate Area Styles control(s).
+	 *
+	 * @access public
+	 * @since  1.0
+	 */
+	public function register_settings() {
+		$this->wp_customize->add_setting( 'affwp_settings[labs][affiliate_area][primary]', array(
+			'type'              => 'option',
+			'default'           => '#FF6633',
+			'sanitize_callback' => 'sanitize_hex_color',
+			'transport'         => 'postMessage'
+		) );
+
+	}
+
+	/**
+	 * Registers controls to the the Affiliate Area Styles section(s).
+	 *
+	 * @access public
+	 * @since  1.0
+	 */
+	public function register_controls() {
+		$this->wp_customize->add_control(
+			new \WP_Customize_Color_Control( $this->wp_customize, 'affiliate_area_primary', array(
+				'settings'   => 'affwp_settings[labs][affiliate_area][primary]',
+				'label'    => __( 'Primary Color', 'amp' ),
+				'section'  => 'affwp_labs_affiliate_area',
+				'priority' => 10
+			) )
+		);
 	}
 
 	/**
@@ -63,23 +98,6 @@ final class Affiliate_Area_Styles extends Labs\Feature {
 			'title' => __( 'Affiliate Area Styles', 'affiliate-wp' ),
 			'panel' => affiliate_wp()->labs->get_panel_id()
 		) );
-	}
-
-	/**
-	 * Registers controls to the the Affiliate Area Styles section(s).
-	 *
-	 * @access public
-	 * @since  1.0
-	 */
-	public function register_controls() {
-		$this->wp_customize->add_control(
-			new \WP_Customize_Color_Control( $this->wp_customize, 'affiliate_area_primary', array(
-				'settings'   => 'affwp_settings',
-				'label'    => __( 'Primary Color', 'amp' ),
-				'section'  => 'affwp_labs_affiliate_area',
-				'priority' => 10
-			) )
-		);
 	}
 
 	/**
