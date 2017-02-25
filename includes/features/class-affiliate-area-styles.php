@@ -76,7 +76,7 @@ final class Affiliate_Area_Styles extends Labs\Feature implements Labs\Customize
 		$this->wp_customize->add_control(
 			new \WP_Customize_Color_Control( $this->wp_customize, 'affiliate_area_primary', array(
 				'settings'   => 'affwp_settings[labs][affiliate_area][primary]',
-				'label'    => __( 'Primary Color', 'amp' ),
+				'label'    => __( 'Primary Color', 'affiliatewp-labs' ),
 				'section'  => 'affwp_labs_affiliate_area',
 				'priority' => 10
 			) )
@@ -91,7 +91,7 @@ final class Affiliate_Area_Styles extends Labs\Feature implements Labs\Customize
 	 */
 	public function register_sections() {
 		$this->wp_customize->add_section( 'affwp_labs_affiliate_area', array(
-			'title' => __( 'Affiliate Area Styles', 'affiliate-wp' ),
+			'title' => __( 'Affiliate Area Styles', 'affiliatewp-labs' ),
 			'panel' => affiliate_wp()->labs->get_panel_id()
 		) );
 	}
@@ -107,8 +107,8 @@ final class Affiliate_Area_Styles extends Labs\Feature implements Labs\Customize
 	 */
 	public function register_labs_setting( $settings ) {
 		$settings['affiliate_area_styles'] = array(
-			'name' => __( 'Affiliate Area Styles', 'affiliate-wp' ),
-			'desc' => __( 'Adds the ability to customize styling of the affiliate area.', 'affiliate-wp' ),
+			'name' => __( 'Affiliate Area Styles', 'affiliatewp-labs' ),
+			'desc' => __( 'Adds the ability to customize styling of the affiliate area.', 'affiliatewp-labs' ),
 			'type' => 'checkbox'
 		);
 

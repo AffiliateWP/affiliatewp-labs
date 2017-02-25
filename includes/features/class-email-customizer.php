@@ -76,7 +76,7 @@ final class Email_Customizer extends Labs\Feature implements Labs\Customizer_Fea
 		$this->wp_customize->add_control(
 			new \WP_Customize_Color_Control( $this->wp_customize, 'email_customizer_primary', array(
 				'settings'   => 'affwp_settings[labs][email][primary]',
-				'label'    => __( 'Primary Color', 'amp' ),
+				'label'    => __( 'Primary Color', 'affiliatewp-labs' ),
 				'section'  => 'affwp_labs_email_customizer',
 				'priority' => 10
 			) )
@@ -91,7 +91,7 @@ final class Email_Customizer extends Labs\Feature implements Labs\Customizer_Fea
 	 */
 	public function register_sections() {
 		$this->wp_customize->add_section( 'affwp_labs_email_customizer', array(
-			'title' => __( 'Email Customizer', 'affiliate-wp' ),
+			'title' => __( 'Email Customizer', 'affiliatewp-labs' ),
 			'panel' => affiliate_wp()->labs->get_panel_id()
 		) );
 	}
@@ -107,8 +107,8 @@ final class Email_Customizer extends Labs\Feature implements Labs\Customizer_Fea
 	 */
 	public function register_labs_setting( $settings ) {
 		$settings['email_customizer'] = array(
-			'name' => __( 'Email Customizer', 'affiliate-wp' ),
-			'desc' => __( 'Adds the ability to customize AffiliateWP emails.', 'affiliate-wp' ),
+			'name' => __( 'Email Customizer', 'affiliatewp-labs' ),
+			'desc' => __( 'Adds the ability to customize AffiliateWP emails.', 'affiliatewp-labs' ),
 			'type' => 'checkbox'
 		);
 
