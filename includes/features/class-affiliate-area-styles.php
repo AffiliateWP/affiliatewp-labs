@@ -107,7 +107,7 @@ final class Affiliate_Area_Styles extends Labs\Feature implements Labs\Customize
 	 */
 	public function register_labs_setting( $settings ) {
 		$settings['affiliate_area_styles'] = array(
-			'name' => __( 'Affiliate Area Style Customizer', 'affiliate-wp' ),
+			'name' => __( 'Affiliate Area Styles', 'affiliate-wp' ),
 			'desc' => __( 'Adds the ability to customize styling of the affiliate area.', 'affiliate-wp' ),
 			'type' => 'checkbox'
 		);
