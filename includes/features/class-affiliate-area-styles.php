@@ -28,7 +28,7 @@ final class Affiliate_Area_Styles extends Labs\Feature implements Labs\Customize
 	 * @since  1.0
 	 */
 	public function __construct() {
-		add_action( 'affwp_labs_customize_register', array( $this, 'set_up_customizer' ), 20 );
+		add_action( 'affwp_labs_customize_register', array( $this, 'set_up_customizer' ) );
 
 		parent::__construct();
 	}
