@@ -245,6 +245,11 @@ if ( ! class_exists( 'AffiliateWP_Labs' ) ) {
 				'file'  => AFFWP_LABS_PLUGIN_DIR . 'includes/features/class-affiliate-area-styles.php'
 			) );
 
+			affiliate_wp()->labs->register_feature( array(
+				'id' => 'email_customizer',
+				'class' => '\AffWP\Labs\Email_Customizer',
+				'file'  => AFFWP_LABS_PLUGIN_DIR . 'includes/features/class-email-customizer.php'
+			) );
 		}
 
 		/**
