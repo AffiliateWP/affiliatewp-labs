@@ -17,6 +17,10 @@ require_once $_tests_dir . '/includes/functions.php';
  * Manually load the plugin being tested.
  */
 function _manually_load_plugin() {
+	// AffiliateWP base.
+	require dirname( dirname( __FILE__ ) ) . '/../affiliatewp/affiliate-wp.php';
+
+	// Labs.
 	require dirname( dirname( __FILE__ ) ) . '/affiliatewp-labs.php';
 }
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
