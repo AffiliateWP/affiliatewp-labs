@@ -3,8 +3,8 @@
  * Plugin Name: AffiliateWP - Labs
  * Plugin URI: https://affiliatewp.com/
  * Description: Adds the ability to test experimental, production-ready features in AffiliateWP.
- * Author: AffiliateWP, LLC
- * Author URI: https://affiliatewp.com
+ * Author: Sandhills Development, LLC
+ * Author URI: https://sandhillsdev.com
  * Version: 1.0
  * Text Domain: affiliatewp-labs
  * Domain Path: languages
